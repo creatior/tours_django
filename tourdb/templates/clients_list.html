@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список клиентов</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(204, 255, 250);
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            background-color: #009e8e;
+            color: white;
+            padding: 20px 0;
+            margin: 0;
+            position: relative;
+        }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            right: 10px;
+            background-color: #fe6c00;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .back-button:hover {
+            background-color: rgb(184, 80, 0);
+        }
+        ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            list-style-type: none;
+            padding: 20px;
+        }
+        li {
+            width: 40%;
+            background-color: white;
+            margin: 10px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .client-info {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+        .client-info div {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .client-info p {
+            margin: 0;
+            color: #666;
+        }
+        .client-info strong {
+            font-size: 1.2em;
+            color: #333;
+        }
+        .edit-button {
+            background-color: #fe6c00;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .edit-button:hover {
+            background-color: rgb(184, 80, 0);
+        }
+    </style>
+</head>
+<body>
+    <h1>Список клиентов</h1>
+    <a href="../" class="back-button">Назад</a>
+    <ul>
+        {% for client in clients %}
+            <li style="display:flex; flex-direction:column">
+                <div class="client-info">
+                    <div>
+                        <strong>Фамилия:</strong>
+                        <p>{{ client.surname }}</p>
+                    </div>
+                    <div>
+                        <strong>Имя:</strong>
+                        <p>{{ client.first_name }}</p>
+                    </div>
+                    <div>
+                        <strong>Отчество:</strong>
+                        <p>{{ client.last_name }}</p>
+                    </div>
+                    <div>
+                        <strong>Email:</strong>
+                        <p>{{ client.email }}</p>
+                    </div>
+                    <div>
+                        <strong>Телефон:</strong>
+                        <p>{{ client.phone_number }}</p>
+                    </div>
+                </div>
+                <a href="{% url 'edit_client' client.client_id %}" class="edit-button">Редактировать</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

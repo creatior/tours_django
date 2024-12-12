@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ tour.tour_name }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(204, 255, 250);
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            background-color: #009e8e;
+            color: white;
+            padding: 20px 0;
+            margin: 0;
+        }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            right: 10px;
+            background-color: #fe6c00;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .back-button:hover {
+            background-color: rgb(184, 80, 0);
+        }
+        .tour-details {
+            width: 60%;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .tour-details h2 {
+            color: #333;
+        }
+        .tour-details p {
+            color: #666;
+            margin-top: 10px;
+        }
+        .edit-button {
+            display: inline-block;
+            margin-top: 20px;
+            background-color: #fe6c00;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .edit-button:hover {
+            background-color: rgb(184, 80, 0);
+        }
+    </style>
+</head>
+<body>
+    <h1>Подробный просмотр</h1>
+    <a href="../" class="back-button">Назад</a>
+    <div class="tour-details">
+        <h2>Название</h2>
+        <p>{{ tour.tour_name }}</p>
+        <h2>Описание</h2>
+        <p>{{ tour.description }}</p>
+        <h2>Длительность</h2>
+        <p>{{ tour.duration }} дней</p>
+        <h2>Цена</h2>
+        <p>{{ tour.price }}</p>
+        <a href="{% url 'edit_tour' tour.tour_id %}" class="edit-button">Редактировать</a>
+    </div>
+</body>
+</html>

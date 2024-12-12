@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить экскурсию</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(204, 255, 250);
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            background-color: #009e8e;
+            color: white;
+            padding: 20px 0;
+            margin: 0;
+        }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            right: 10px;
+            background-color: #fe6c00;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .back-button:hover {
+            background-color: rgb(184, 80, 0);
+        }
+        .form-container {
+            width: 60%;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .form-container label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .form-container input, .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-container button {
+            background-color: #fe6c00;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .form-container button:hover {
+            background-color: rgb(184, 80, 0);
+        }
+    </style>
+</head>
+<body>
+    <h1>Добавить экскурсию</h1>
+    <a href="../" class="back-button">Назад</a>
+    <div class="form-container">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" href="../">Добавить</button>
+        </form>
+    </div>
+</body>
+</html>
